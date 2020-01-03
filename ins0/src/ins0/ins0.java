@@ -125,28 +125,16 @@ public class ins0 extends JFrame {
 		btnCrearPedido.setBounds(546, 49, 121, 30);
 		Login.add(btnCrearPedido);
 		
-		JDesktopPane Pedido = new JDesktopPane();
-		Pedido.setBackground(Color.LIGHT_GRAY);
-		Pestanhas.addTab("Crear Pedido", null, Pedido, null);
-		
-		JLabel lblError = new JLabel("Debes haber iniciado sesión para realizar cualquier acción");
-		lblError.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblError.setBounds(355, 282, 521, 100);
-		Pedido.add(lblError);
-		lblError.setVisible(false);
-		
-		JLabel lblNombrePedido = new JLabel("Nombre Pedido:");
-		lblNombrePedido.setBounds(77, 70, 111, 14);
-		Pedido.add(lblNombrePedido);
-		lblNombrePedido.setVisible(false);
-		
-		if(ins0.getConectado().equals("Atencion al Cliente") || ins0.getConectado().equals("Almacen") || ins0.getConectado().equals("Administrador")) {
-			lblError.setVisible(false);
-			lblNombrePedido.setVisible(true);
-			Pedido.repaint();
-		}else {
-			lblError.setVisible(true);
-		}
+		JButton btnModificardatos = new JButton("Modificar Datos");
+		btnModificardatos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ModificarVentana v4 = new ModificarVentana();
+				v4.setVisible(true);
+			}
+		});
+		btnModificardatos.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnModificardatos.setBounds(546, 123, 143, 30);
+		Login.add(btnModificardatos);
 		
 	}
 }
