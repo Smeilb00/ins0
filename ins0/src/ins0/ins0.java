@@ -108,7 +108,7 @@ public class ins0 extends JFrame {
 					VentanaRegistro v2 = new VentanaRegistro();
 					v2.setVisible(true);
 				}else {
-					JOptionPane.showMessageDialog(null, "Debes estar registrado como trabajador para poder agregar nuevos usuarios");
+					JOptionPane.showMessageDialog(null, "Debes haber iniciado como un trabajador para poder agregar nuevos usuarios.");
 				}
 				
 			}
@@ -120,8 +120,12 @@ public class ins0 extends JFrame {
 		JButton btnCrearPedido = new JButton("Crear Pedido");
 		btnCrearPedido.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				VentanaPedido v3 = new VentanaPedido();
-				v3.setVisible(true);
+				if(ins0.conectado != "") {
+					VentanaPedido v3 = new VentanaPedido();
+					v3.setVisible(true);
+				}else {
+					JOptionPane.showMessageDialog(null, "Debes haber iniciado sesión primero.");
+				}
 			}
 		});
 		btnCrearPedido.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -131,8 +135,12 @@ public class ins0 extends JFrame {
 		JButton btnModificardatos = new JButton("Modificar Datos");
 		btnModificardatos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VentanaModificar v4 = new VentanaModificar();
-				v4.setVisible(true);
+				if(ins0.conectado != "" && ins0.conectado != "Cliente") {
+					VentanaModificar v4 = new VentanaModificar();
+					v4.setVisible(true);
+				}else {
+					JOptionPane.showMessageDialog(null, "Debes haber iniciado como un trabajador para poder modificar datos.");
+				}
 			}
 		});
 		btnModificardatos.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -142,6 +150,12 @@ public class ins0 extends JFrame {
 		JButton btnSolicitarReposicion = new JButton("Solicitar Reposicion");
 		btnSolicitarReposicion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				if(ins0.conectado != "Almacen" || ins0.conectado == "Administrador") {
+					VentanaReposicion v5 = new VentanaReposicion();
+					v5.setVisible(true);
+				}else {
+					JOptionPane.showMessageDialog(null, "Solo los encargados del almacén y el administrador pueden solicitar reposiciones.");
+				}
 			}
 		});
 		btnSolicitarReposicion.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -149,9 +163,34 @@ public class ins0 extends JFrame {
 		Login.add(btnSolicitarReposicion);
 		
 		JButton btnCancelarPedido = new JButton("Cancelar Pedido");
+		btnCancelarPedido.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(ins0.conectado != "") {
+					VentanaCancelar v6 = new VentanaCancelar();
+					v6.setVisible(true);
+				}else {
+					JOptionPane.showMessageDialog(null, "Debes haber iniciado sesión primero.");
+				}
+			}
+		});
 		btnCancelarPedido.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnCancelarPedido.setBounds(546, 258, 159, 30);
 		Login.add(btnCancelarPedido);
+		
+		JButton btnAceptarPedidos = new JButton("Aceptar Pedidos");
+		btnAceptarPedidos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(ins0.conectado != "") {
+					VentanaAceptar v6 = new VentanaAceptar();
+					v6.setVisible(true);
+				}else {
+					JOptionPane.showMessageDialog(null, "Debes haber iniciado como un trabajador para poder modificar datos.");
+				}
+			}
+		});
+		btnAceptarPedidos.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnAceptarPedidos.setBounds(546, 325, 159, 30);
+		Login.add(btnAceptarPedidos);
 		
 	}
 }
