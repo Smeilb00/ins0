@@ -44,11 +44,14 @@ public class ins0 extends JFrame {
 	public ins0() {
 		setTitle("Principal");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1300, 750);
+		Image icon = new ImageIcon(getClass().getResource("o2.png")).getImage();
+        setIconImage(icon);
+		setBounds(100, 100, 932, 555);
 		Principal = new JPanel();
 		Principal.setBorder(new EmptyBorder(5, 5, 5, 5));
 		Principal.setLayout(new BorderLayout(0, 0));
 		setContentPane(Principal);
+
 				
 		JTabbedPane Pestanhas = new JTabbedPane(JTabbedPane.TOP);
 		Pestanhas.setForeground(Color.BLACK);
@@ -102,7 +105,7 @@ public class ins0 extends JFrame {
 		btnRegistro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(ins0.conectado != "" && ins0.conectado != "Cliente") {
-					RegistroVentana v2 = new RegistroVentana();
+					VentanaRegistro v2 = new VentanaRegistro();
 					v2.setVisible(true);
 				}else {
 					JOptionPane.showMessageDialog(null, "Debes estar registrado como trabajador para poder agregar nuevos usuarios");
@@ -117,7 +120,7 @@ public class ins0 extends JFrame {
 		JButton btnCrearPedido = new JButton("Crear Pedido");
 		btnCrearPedido.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				PedidoVentana v3 = new PedidoVentana();
+				VentanaPedido v3 = new VentanaPedido();
 				v3.setVisible(true);
 			}
 		});
@@ -128,13 +131,27 @@ public class ins0 extends JFrame {
 		JButton btnModificardatos = new JButton("Modificar Datos");
 		btnModificardatos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ModificarVentana v4 = new ModificarVentana();
+				VentanaModificar v4 = new VentanaModificar();
 				v4.setVisible(true);
 			}
 		});
 		btnModificardatos.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnModificardatos.setBounds(546, 123, 143, 30);
 		Login.add(btnModificardatos);
+		
+		JButton btnSolicitarReposicion = new JButton("Solicitar Reposicion");
+		btnSolicitarReposicion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnSolicitarReposicion.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnSolicitarReposicion.setBounds(546, 191, 159, 30);
+		Login.add(btnSolicitarReposicion);
+		
+		JButton btnCancelarPedido = new JButton("Cancelar Pedido");
+		btnCancelarPedido.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnCancelarPedido.setBounds(546, 258, 159, 30);
+		Login.add(btnCancelarPedido);
 		
 	}
 }
