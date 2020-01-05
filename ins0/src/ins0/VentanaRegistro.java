@@ -40,110 +40,121 @@ public class VentanaRegistro extends JFrame {
 		setContentPane(Principal);
 
 		JDesktopPane desktopPane = new JDesktopPane();
-		desktopPane.setBackground(Color.LIGHT_GRAY);
+		desktopPane.setBackground(new Color(70, 130, 180));
 		Principal.add(desktopPane, BorderLayout.CENTER);
 
 		JRadioButton rdbtnCliente = new JRadioButton("Cliente");
+		rdbtnCliente.setForeground(new Color(255, 255, 255));
 		buttonGroup.add(rdbtnCliente);
-		rdbtnCliente.setBackground(Color.LIGHT_GRAY);
-		rdbtnCliente.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		rdbtnCliente.setBounds(181, 38, 109, 23);
+		rdbtnCliente.setBackground(new Color(70, 130, 180));
+		rdbtnCliente.setFont(new Font("Tahoma", Font.BOLD, 14));
+		rdbtnCliente.setBounds(224, 101, 109, 23);
 		desktopPane.add(rdbtnCliente);
 
 		JRadioButton rdbtnTrabajador = new JRadioButton("Trabajador");
+		rdbtnTrabajador.setForeground(new Color(255, 255, 255));
 		buttonGroup.add(rdbtnTrabajador);
-		rdbtnTrabajador.setBackground(Color.LIGHT_GRAY);
-		rdbtnTrabajador.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		rdbtnTrabajador.setBounds(292, 38, 109, 23);
+		rdbtnTrabajador.setBackground(new Color(70, 130, 180));
+		rdbtnTrabajador.setFont(new Font("Tahoma", Font.BOLD, 14));
+		rdbtnTrabajador.setBounds(335, 101, 109, 23);
 		desktopPane.add(rdbtnTrabajador);
 
 		JLabel lblTipo = new JLabel("Tipo:");
-		lblTipo.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblTipo.setBounds(83, 40, 84, 19);
+		lblTipo.setForeground(new Color(255, 255, 255));
+		lblTipo.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblTipo.setBounds(126, 103, 84, 19);
 		desktopPane.add(lblTipo);
 
 		JLabel lblNombre = new JLabel("Nombre:");
-		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNombre.setBounds(83, 100, 84, 19);
+		lblNombre.setForeground(new Color(255, 255, 255));
+		lblNombre.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNombre.setBounds(126, 163, 84, 19);
 		desktopPane.add(lblNombre);
 
 		JLabel lblApellido = new JLabel("Apellido:");
-		lblApellido.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblApellido.setBounds(371, 100, 88, 19);
+		lblApellido.setForeground(new Color(255, 255, 255));
+		lblApellido.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblApellido.setBounds(414, 163, 88, 19);
 		desktopPane.add(lblApellido);
 
 		JLabel lblDni = new JLabel("DNI:");
-		lblDni.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblDni.setBounds(83, 168, 84, 14);
+		lblDni.setForeground(new Color(255, 255, 255));
+		lblDni.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblDni.setBounds(126, 231, 84, 14);
 		desktopPane.add(lblDni);
 
 		JLabel lblContrasea = new JLabel("Contrase\u00F1a:");
-		lblContrasea.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblContrasea.setBounds(371, 166, 88, 19);
+		lblContrasea.setForeground(new Color(255, 255, 255));
+		lblContrasea.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblContrasea.setBounds(414, 229, 88, 19);
 		desktopPane.add(lblContrasea);
 
 		JLabel lblDireccion = new JLabel("Direccion:");
-		lblDireccion.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblDireccion.setBounds(83, 240, 80, 14);
+		lblDireccion.setForeground(new Color(255, 255, 255));
+		lblDireccion.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblDireccion.setBounds(126, 303, 80, 14);
 		desktopPane.add(lblDireccion);
 
 		JLabel lblTelefono = new JLabel("Telefono:");
-		lblTelefono.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblTelefono.setBounds(371, 230, 88, 23);
+		lblTelefono.setForeground(new Color(255, 255, 255));
+		lblTelefono.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblTelefono.setBounds(414, 293, 88, 23);
 		desktopPane.add(lblTelefono);
 
 		txtNombre = new JTextField();
 		txtNombre.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txtNombre.setBounds(181, 100, 180, 21);
+		txtNombre.setBounds(224, 163, 180, 21);
 		desktopPane.add(txtNombre);
 		txtNombre.setColumns(10);
 
 		txtDNI = new JTextField();
 		txtDNI.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtDNI.setColumns(10);
-		txtDNI.setBounds(181, 165, 180, 21);
+		txtDNI.setBounds(224, 228, 180, 21);
 		desktopPane.add(txtDNI);
 
 		txtDireccion = new JTextField();
 		txtDireccion.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtDireccion.setColumns(10);
-		txtDireccion.setBounds(181, 237, 180, 21);
+		txtDireccion.setBounds(224, 300, 180, 21);
 		desktopPane.add(txtDireccion);
 
 		txtApellido = new JTextField();
 		txtApellido.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtApellido.setColumns(10);
-		txtApellido.setBounds(469, 101, 180, 21);
+		txtApellido.setBounds(512, 164, 180, 21);
 		desktopPane.add(txtApellido);
 
 		txtTelefono = new JTextField();
 		txtTelefono.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtTelefono.setColumns(10);
-		txtTelefono.setBounds(469, 233, 180, 21);
+		txtTelefono.setBounds(512, 296, 180, 21);
 		desktopPane.add(txtTelefono);
 
 		txtContrasenha = new JPasswordField();
-		txtContrasenha.setBounds(469, 167, 180, 20);
+		txtContrasenha.setBounds(512, 230, 180, 20);
 		desktopPane.add(txtContrasenha);
 
 		JLabel lblFechaNacimiento = new JLabel("Fecha de Nacimiento:");
-		lblFechaNacimiento.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblFechaNacimiento.setBounds(83, 295, 142, 14);
+		lblFechaNacimiento.setForeground(new Color(255, 255, 255));
+		lblFechaNacimiento.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblFechaNacimiento.setBounds(126, 358, 164, 14);
 		desktopPane.add(lblFechaNacimiento);
 
 		JDateChooser calendar = new JDateChooser("yyyy/MM/dd", "####/##/##", '_');
-		calendar.setBounds(235, 289, 180, 29);
+		calendar.setBounds(300, 354, 180, 29);
 		desktopPane.add(calendar);
 
 		JLabel lblPosicion = new JLabel("Posicion:");
-		lblPosicion.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblPosicion.setBounds(469, 297, 88, 23);
+		lblPosicion.setForeground(new Color(255, 255, 255));
+		lblPosicion.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblPosicion.setBounds(500, 354, 74, 23);
 		desktopPane.add(lblPosicion);
 
 		JComboBox<String> txtPosicion = new JComboBox<String>();
 		txtPosicion.setModel(new DefaultComboBoxModel<String>(
 				new String[] { "Cliente", "Almacen", "Administrador", "Atencion al Cliente" }));
-		txtPosicion.setBounds(529, 300, 120, 20);
+		txtPosicion.setBounds(572, 357, 120, 20);
 		desktopPane.add(txtPosicion);
 		JButton btnRegistro = new JButton("Registro");
 		btnRegistro.addActionListener(new ActionListener() {
@@ -200,7 +211,14 @@ public class VentanaRegistro extends JFrame {
 			}
 		});
 		btnRegistro.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnRegistro.setBounds(338, 370, 121, 30);
+		btnRegistro.setBounds(381, 433, 121, 30);
 		desktopPane.add(btnRegistro);
+		
+		JLabel lblRegistroDeUsuarios = new JLabel("REGISTRO DE USUARIOS");
+		lblRegistroDeUsuarios.setHorizontalAlignment(SwingConstants.CENTER);
+		lblRegistroDeUsuarios.setFont(new Font("Tahoma", Font.BOLD, 25));
+		lblRegistroDeUsuarios.setForeground(new Color(255, 255, 255));
+		lblRegistroDeUsuarios.setBounds(126, 38, 566, 40);
+		desktopPane.add(lblRegistroDeUsuarios);
 	}
 }

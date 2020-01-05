@@ -30,7 +30,7 @@ public class VentanaAddArticulo extends JFrame {
 
 	public VentanaAddArticulo() {
 		setTitle("A\u00F1adir Articulo");
-		setBounds(100, 100, 851, 536);
+		setBounds(100, 100, 634, 382);
 		Principal = new JPanel();
 		Principal.setBackground(Color.LIGHT_GRAY);
 		Principal.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -38,70 +38,83 @@ public class VentanaAddArticulo extends JFrame {
 		setContentPane(Principal);
 
 		JDesktopPane desktopPane = new JDesktopPane();
-		desktopPane.setBackground(Color.LIGHT_GRAY);
+		desktopPane.setBackground(new Color(70, 130, 180));
 		Principal.add(desktopPane, BorderLayout.CENTER);
 		JButton btnArticulo = new JButton("A\u00F1adir Art\u00EDculo");
 		btnArticulo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {}
 		});
 		btnArticulo.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnArticulo.setBounds(338, 370, 121, 30);
+		btnArticulo.setBounds(224, 292, 121, 30);
 		desktopPane.add(btnArticulo);
 		
 		JLabel lblNumeroDeSerie = new JLabel("Numero de Serie:");
-		lblNumeroDeSerie.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNumeroDeSerie.setBounds(52, 52, 137, 19);
+		lblNumeroDeSerie.setForeground(new Color(255, 255, 255));
+		lblNumeroDeSerie.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNumeroDeSerie.setBounds(115, 71, 137, 19);
 		desktopPane.add(lblNumeroDeSerie);
 		
 		JLabel lblTipo = new JLabel("Tipo:");
-		lblTipo.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblTipo.setBounds(52, 82, 137, 19);
+		lblTipo.setForeground(new Color(255, 255, 255));
+		lblTipo.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblTipo.setBounds(115, 101, 137, 19);
 		desktopPane.add(lblTipo);
 		
 		JLabel lblSubtipo = new JLabel("Subtipo:");
-		lblSubtipo.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblSubtipo.setBounds(52, 112, 137, 19);
+		lblSubtipo.setForeground(new Color(255, 255, 255));
+		lblSubtipo.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblSubtipo.setBounds(115, 131, 137, 19);
 		desktopPane.add(lblSubtipo);
 		
 		JLabel lblMarca = new JLabel("Marca: ");
-		lblMarca.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblMarca.setBounds(52, 142, 137, 19);
+		lblMarca.setForeground(new Color(255, 255, 255));
+		lblMarca.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblMarca.setBounds(115, 161, 137, 19);
 		desktopPane.add(lblMarca);
 		
 		JLabel lblFechaDeLlegada = new JLabel("Fecha de Llegada:");
-		lblFechaDeLlegada.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblFechaDeLlegada.setBounds(52, 171, 137, 19);
+		lblFechaDeLlegada.setForeground(new Color(255, 255, 255));
+		lblFechaDeLlegada.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblFechaDeLlegada.setBounds(115, 190, 137, 19);
 		desktopPane.add(lblFechaDeLlegada);
 		
 		JLabel lblStock = new JLabel("Stock: ");
-		lblStock.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblStock.setBounds(52, 201, 137, 19);
+		lblStock.setForeground(new Color(255, 255, 255));
+		lblStock.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblStock.setBounds(115, 220, 137, 19);
 		desktopPane.add(lblStock);
 		
 		txtNumeroDeSerie = new JTextField();
-		txtNumeroDeSerie.setBounds(199, 53, 208, 20);
+		txtNumeroDeSerie.setBounds(262, 72, 208, 20);
 		desktopPane.add(txtNumeroDeSerie);
 		txtNumeroDeSerie.setColumns(10);
 		
 		txtMarca = new JTextField();
 		txtMarca.setColumns(10);
-		txtMarca.setBounds(199, 143, 208, 20);
+		txtMarca.setBounds(262, 162, 208, 20);
 		desktopPane.add(txtMarca);
 		
 		txtFechaDeLlegada = new JTextField();
 		txtFechaDeLlegada.setText("aaaa/mm/dd");
 		txtFechaDeLlegada.setColumns(10);
-		txtFechaDeLlegada.setBounds(199, 172, 208, 20);
+		txtFechaDeLlegada.setBounds(262, 191, 208, 20);
 		desktopPane.add(txtFechaDeLlegada);
 		
 		txtStock = new JTextField();
 		txtStock.setColumns(10);
-		txtStock.setBounds(199, 202, 208, 20);
+		txtStock.setBounds(262, 221, 208, 20);
 		desktopPane.add(txtStock);
 		
 		JComboBox BoxTipo = new JComboBox();
 		BoxTipo.setToolTipText("Procesador\r\nPlaca Base\r\nRAM\r\nROM HDD\r\nROM SSD\r\n");
-		BoxTipo.setBounds(199, 83, 208, 20);
+		BoxTipo.setBounds(262, 102, 208, 20);
 		desktopPane.add(BoxTipo);
+		
+		JLabel lblAadirArticulo = new JLabel("A\u00D1ADIR ARTICULO");
+		lblAadirArticulo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAadirArticulo.setForeground(new Color(255, 255, 255));
+		lblAadirArticulo.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblAadirArticulo.setBounds(115, 30, 355, 30);
+		desktopPane.add(lblAadirArticulo);
 	}
 }

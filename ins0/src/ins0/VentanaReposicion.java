@@ -34,7 +34,7 @@ public class VentanaReposicion extends JFrame {
 		setContentPane(Principal);
 
 		JDesktopPane desktopPane = new JDesktopPane();
-		desktopPane.setBackground(Color.LIGHT_GRAY);
+		desktopPane.setBackground(new Color(70, 130, 180));
 		Principal.add(desktopPane, BorderLayout.CENTER);
 		JButton btnPedido = new JButton("Hacer Pedido");
 		

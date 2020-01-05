@@ -28,18 +28,17 @@ public class VentanaAceptar extends JFrame {
 		setTitle("Gestionar Stock");
 		setBounds(100, 100, 851, 536);
 		Principal = new JPanel();
-		Principal.setBackground(Color.LIGHT_GRAY);
 		Principal.setBorder(new EmptyBorder(5, 5, 5, 5));
 		Principal.setLayout(new BorderLayout(0, 0));
 		setContentPane(Principal);
 
 		JDesktopPane desktopPane = new JDesktopPane();
-		desktopPane.setBackground(Color.LIGHT_GRAY);
+		desktopPane.setBackground(new Color(70, 130, 180));
 		Principal.add(desktopPane, BorderLayout.CENTER);
-		JButton btnPedido = new JButton("Hacer Pedido");
+		JButton btnPedido = new JButton("Aceptar Pedidos");
 		
-		btnPedido.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnPedido.setBounds(338, 370, 121, 30);
+		btnPedido.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnPedido.setBounds(338, 370, 191, 30);
 		desktopPane.add(btnPedido);
 	}
 }

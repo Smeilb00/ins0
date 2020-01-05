@@ -23,10 +23,11 @@ import java.awt.event.ActionEvent;
 public class VentanaCancelar extends JFrame {
 	private JPanel Principal;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private JTextField textField;
 
 	public VentanaCancelar() {
 		setTitle("Gestionar Stock");
-		setBounds(100, 100, 851, 536);
+		setBounds(100, 100, 851, 336);
 		Principal = new JPanel();
 		Principal.setBackground(Color.LIGHT_GRAY);
 		Principal.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -34,12 +35,32 @@ public class VentanaCancelar extends JFrame {
 		setContentPane(Principal);
 
 		JDesktopPane desktopPane = new JDesktopPane();
-		desktopPane.setBackground(Color.LIGHT_GRAY);
+		desktopPane.setBackground(new Color(70, 130, 180));
 		Principal.add(desktopPane, BorderLayout.CENTER);
-		JButton btnPedido = new JButton("Hacer Pedido");
+		JButton btnPedido = new JButton("Cancelar Pedido");
 		
 		btnPedido.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnPedido.setBounds(338, 370, 121, 30);
+		btnPedido.setBounds(544, 233, 216, 30);
 		desktopPane.add(btnPedido);
+		
+		textField = new JTextField();
+		textField.setBounds(198, 80, 264, 20);
+		desktopPane.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblNumeroDePedido = new JLabel("Numero de pedido");
+		lblNumeroDePedido.setForeground(new Color(255, 255, 255));
+		lblNumeroDePedido.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNumeroDePedido.setBounds(27, 81, 145, 14);
+		desktopPane.add(lblNumeroDePedido);
+		
+		JLabel lblNewLabel = new JLabel("DATOS PEDIDO");
+		lblNewLabel.setBounds(493, 24, 293, 185);
+		desktopPane.add(lblNewLabel);
+		
+		JButton btnBuscarPedido = new JButton("Buscar Pedido");
+		btnBuscarPedido.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnBuscarPedido.setBounds(122, 131, 216, 30);
+		desktopPane.add(btnBuscarPedido);
 	}
 }

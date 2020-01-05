@@ -38,7 +38,7 @@ public class VentanaModificar extends JFrame {
 		setContentPane(Principal);
 
 		JDesktopPane desktopPane = new JDesktopPane();
-		desktopPane.setBackground(Color.LIGHT_GRAY);
+		desktopPane.setBackground(new Color(70, 130, 180));
 		Principal.add(desktopPane, BorderLayout.CENTER);
 		JButton btnPedido = new JButton("Crear Pedido");
 		btnPedido.addActionListener(new ActionListener() {
@@ -53,16 +53,18 @@ public class VentanaModificar extends JFrame {
 			}
 		});
 		btnPedido.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnPedido.setBounds(143, 147, 121, 30);
+		btnPedido.setBounds(162, 157, 121, 30);
 		desktopPane.add(btnPedido);
 		
 		JLabel lblCampo = new JLabel("Campo a modificar:");
-		lblCampo.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblCampo.setForeground(new Color(255, 255, 255));
+		lblCampo.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblCampo.setBounds(60, 86, 137, 19);
 		desktopPane.add(lblCampo);
 		
 		JLabel lblValor = new JLabel("Modificacion:");
-		lblValor.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblValor.setForeground(new Color(255, 255, 255));
+		lblValor.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblValor.setBounds(60, 117, 137, 19);
 		desktopPane.add(lblValor);
 		
@@ -79,46 +81,51 @@ public class VentanaModificar extends JFrame {
 		desktopPane.add(BoxCampo);
 		
 		JRadioButton rdbtnTrabajador = new JRadioButton("Trabajador");
+		rdbtnTrabajador.setForeground(new Color(255, 255, 255));
+		rdbtnTrabajador.setBackground(new Color(70, 130, 180));
 		rdbtnTrabajador.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				BoxCampo.removeAllItems();
 				BoxCampo.setModel(new DefaultComboBoxModel(new String[] {"Posicion", "Nombre", "Apellido", "Direccion", "Telefono", "Contrasenha"}));
 			}
 		});
-		rdbtnTrabajador.setBackground(Color.LIGHT_GRAY);
+		
 		buttonGroup_2.add(rdbtnTrabajador);
-		rdbtnTrabajador.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		rdbtnTrabajador.setFont(new Font("Tahoma", Font.BOLD, 14));
 		rdbtnTrabajador.setBounds(88, 24, 97, 23);
 		desktopPane.add(rdbtnTrabajador);
 		
 		JRadioButton rdbtnCliente = new JRadioButton("Cliente");
+		rdbtnCliente.setForeground(new Color(255, 255, 255));
 		rdbtnCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				BoxCampo.removeAllItems();
 				BoxCampo.setModel(new DefaultComboBoxModel(new String[] {"Nombre", "Apellido", "Direccion", "Telefono", "Contrasenha", "Fecha Nacimiento"}));
 			}
 		});
-		rdbtnCliente.setBackground(Color.LIGHT_GRAY);
+		rdbtnCliente.setBackground(new Color(70, 130, 180));
 		buttonGroup_2.add(rdbtnCliente);
-		rdbtnCliente.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		rdbtnCliente.setFont(new Font("Tahoma", Font.BOLD, 14));
 		rdbtnCliente.setBounds(197, 24, 86, 23);
 		desktopPane.add(rdbtnCliente);
 		
 		JRadioButton rdbtnArticulo = new JRadioButton("Articulo");
+		rdbtnArticulo.setForeground(new Color(255, 255, 255));
 		rdbtnArticulo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				BoxCampo.removeAllItems();
 				BoxCampo.setModel(new DefaultComboBoxModel(new String[] {"Numero De Serie","Tipo", "Subtipo", "Marca", "Fecha de Llegada", "Stock"}));
 			}
 		});
-		rdbtnArticulo.setBackground(Color.LIGHT_GRAY);
+		rdbtnArticulo.setBackground(new Color(70, 130, 180));
 		buttonGroup_2.add(rdbtnArticulo);
-		rdbtnArticulo.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		rdbtnArticulo.setFont(new Font("Tahoma", Font.BOLD, 14));
 		rdbtnArticulo.setBounds(288, 24, 97, 23);
 		desktopPane.add(rdbtnArticulo);
 		
 		JLabel lblIdentificador = new JLabel("Identificador: ");
-		lblIdentificador.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblIdentificador.setForeground(new Color(255, 255, 255));
+		lblIdentificador.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblIdentificador.setBounds(60, 56, 137, 19);
 		desktopPane.add(lblIdentificador);
 		
