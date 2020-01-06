@@ -10,6 +10,7 @@ import com.toedter.calendar.JSpinnerDateEditor;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.Date;
@@ -31,16 +32,17 @@ public class VentanaModificar extends JFrame {
 	public VentanaModificar() {
 		setTitle("Modificar Usuarios");
 		setBounds(100, 100, 493, 264);
+		Image icon = new ImageIcon(getClass().getResource("o2.png")).getImage();
+		setIconImage(icon);
 		Principal = new JPanel();
 		Principal.setBackground(Color.LIGHT_GRAY);
-		Principal.setBorder(new EmptyBorder(5, 5, 5, 5));
 		Principal.setLayout(new BorderLayout(0, 0));
 		setContentPane(Principal);
 
 		JDesktopPane desktopPane = new JDesktopPane();
 		desktopPane.setBackground(new Color(70, 130, 180));
 		Principal.add(desktopPane, BorderLayout.CENTER);
-		JButton btnPedido = new JButton("Crear Pedido");
+		JButton btnPedido = new JButton("Modificar Datos");
 		btnPedido.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				DataConnection conectar = new DataConnection();
@@ -53,7 +55,7 @@ public class VentanaModificar extends JFrame {
 			}
 		});
 		btnPedido.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnPedido.setBounds(162, 157, 121, 30);
+		btnPedido.setBounds(168, 157, 137, 30);
 		desktopPane.add(btnPedido);
 		
 		JLabel lblCampo = new JLabel("Campo a modificar:");
@@ -92,7 +94,7 @@ public class VentanaModificar extends JFrame {
 		
 		buttonGroup_2.add(rdbtnTrabajador);
 		rdbtnTrabajador.setFont(new Font("Tahoma", Font.BOLD, 14));
-		rdbtnTrabajador.setBounds(88, 24, 97, 23);
+		rdbtnTrabajador.setBounds(88, 24, 109, 23);
 		desktopPane.add(rdbtnTrabajador);
 		
 		JRadioButton rdbtnCliente = new JRadioButton("Cliente");

@@ -25,7 +25,7 @@ public class VentanaAceptar extends JFrame {
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 
 	public VentanaAceptar() {
-		setTitle("Gestionar Stock");
+		setTitle("Aceptar Pedidos");
 		setBounds(100, 100, 851, 536);
 		Principal = new JPanel();
 		Principal.setBorder(new EmptyBorder(5, 5, 5, 5));

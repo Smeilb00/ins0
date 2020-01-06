@@ -3,6 +3,7 @@ package ins0;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Date;
 
 import javax.swing.JOptionPane;
 
@@ -12,7 +13,57 @@ public class TrabajadorDao {
 		TrabajadorVo retorno = new TrabajadorVo();
 		return retorno;
 	}
+	
+	public void addPedido() {
+		
+	}
+	public void addCliente(Connection conn, String txtNombre, String txtApellido, String txtTelefono, String txtDireccion, String txtDNI, Date calendar, String txtContrasenha) {
+		try {
+			if (VentanaLogin.getConectado().equals("Trabajador")) {
+				PreparedStatement stmt = conn.prepareStatement(
+						"INSERT INTO `clientes` (`Nombre`, `Apellido`, `ID`, `Telefono`, `Direccion`, `DNI`, `FechaNacimiento`, `Contrasenha`) VALUES (?, ?, NULL, ?, ?, ?, ?, ?)");
 
+				stmt.setString(1, txtNombre);
+				stmt.setString(2, txtApellido);
+				stmt.setInt(3, Integer.parseInt(txtTelefono));
+				stmt.setString(4, txtDireccion);
+				stmt.setString(5, txtDNI);
+				java.sql.Date fecha = new java.sql.Date(calendar.getTime());
+				stmt.setDate(6, fecha);
+				stmt.setString(7, txtContrasenha);
+
+				stmt.executeUpdate();
+				
+				stmt.close();
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	
+	}
+	public void addTrabajador(Connection conn, String txtPosicion, String txtNombre, String txtApellido, String txtDNI, String txtDireccion, String txtTelefono, String txtContrasenha) {
+
+		try {
+			PreparedStatement stmt = conn.prepareStatement(
+					"INSERT INTO `trabajador` (`Posicion`, `Nombre`, `Apellido`, `DNI`, `Direccion`, `Telefono`, `ID`, `Contrasenha`) VALUES (?, ?, ?, ?, ?, ?, NULL, ?)");
+
+			stmt.setString(1, txtPosicion);
+			stmt.setString(2, txtNombre);
+			stmt.setString(3, txtApellido);
+			stmt.setString(4, txtDNI);
+			stmt.setString(5, txtDireccion);
+			stmt.setInt(6, Integer.parseInt(txtTelefono));
+			stmt.setString(7, txtContrasenha);
+
+			stmt.executeUpdate();
+
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	
+	}
 	public void removeTrabajador(Connection conn, String DNI) {
 		try {
 			PreparedStatement stmt = conn.prepareStatement("DELETE FROM `Trabajador` WHERE `trabajador`.`DNI` = ?");

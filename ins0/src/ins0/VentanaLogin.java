@@ -9,6 +9,7 @@ import com.toedter.calendar.JDateChooser;
 import com.toedter.calendar.JSpinnerDateEditor;
 
 import java.awt.Color;
+import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionListener;
@@ -20,14 +21,46 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.awt.event.ActionEvent;
+import java.text.SimpleDateFormat;
 
 public class VentanaLogin extends JFrame {
 	
 	private JPanel Principal;
-	private JPasswordField passwordField;
-	private JTextField textField;
+	private JPasswordField txtPassword;
+	private JTextField txtUser;
 	private JLabel lblLogin;
+	private static String conectado = "";
+	private static int iD = 0;
+	
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					VentanaLogin frame = new VentanaLogin();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	
+	
+	public static String getConectado() {
+		return VentanaLogin.conectado;
+	}
 
+	public static void setConectado(String conectado) {
+		VentanaLogin.conectado = conectado;
+	}
+	public static int getID() {
+		return VentanaLogin.iD;
+	}
+	public static void setID(int iD) {
+		VentanaLogin.iD = iD;
+	}
+	
 	public VentanaLogin() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("LOGIN");
@@ -36,7 +69,6 @@ public class VentanaLogin extends JFrame {
 		setBounds(400,200,629,309);
 		Principal = new JPanel();	
 		Principal.setBackground(new Color(70, 130, 180));
-		Principal.setBorder(new EmptyBorder(5,5,5,5));
 		setContentPane(Principal);
 		Principal.setLayout(null);
 		
@@ -54,14 +86,14 @@ public class VentanaLogin extends JFrame {
 		lblPassword.setBounds(102, 151, 100, 14);
 		Principal.add(lblPassword);
 		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(224, 147, 277, 27);
-		Principal.add(passwordField);
+		txtPassword = new JPasswordField();
+		txtPassword.setBounds(224, 147, 277, 27);
+		Principal.add(txtPassword);
 		
-		textField = new JTextField();
-		textField.setBounds(224, 110, 277, 26);
-		Principal.add(textField);
-		textField.setColumns(10);
+		txtUser = new JTextField();
+		txtUser.setBounds(224, 110, 277, 26);
+		Principal.add(txtUser);
+		txtUser.setColumns(10);
 		
 		lblLogin = new JLabel("LOGIN");
 		lblLogin.setHorizontalAlignment(SwingConstants.CENTER);
@@ -69,14 +101,27 @@ public class VentanaLogin extends JFrame {
 		lblLogin.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblLogin.setBounds(93, 51, 427, 27);
 		Principal.add(lblLogin);
-		
-		JButton btnNewButton_1 = new JButton("LOGIN");
-		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnNewButton_1.setBackground(new Color(255, 255, 255));
-		btnNewButton_1.setForeground(new Color(70, 130, 180));
-		btnNewButton_1.setBounds(262, 202, 89, 23);
-		Principal.add(btnNewButton_1);
-		Icon X = new ImageIcon(getClass().getResource("X.png"));
+		JButton btnLogin = new JButton("LOGIN");
+		btnLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				DataConnection conectar = new DataConnection();
+				Connection conn = conectar.DataConn();
+				conectar.comprobarUsuario(conn, txtUser.getText(), txtPassword.getText());
+				
+				if(getConectado().equals("")) {
+					JOptionPane.showMessageDialog(null, "Login incorrecto.");
+				}else {
+					VentanaBotones v1 = new VentanaBotones();
+					v1.setVisible(true);
+				}
+				
+			}
+		});
+		btnLogin.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnLogin.setBackground(new Color(255, 255, 255));
+		btnLogin.setForeground(new Color(70, 130, 180));
+		btnLogin.setBounds(262, 202, 89, 23);
+		Principal.add(btnLogin);
 		
 
 	}

@@ -18,6 +18,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
+import java.util.Calendar;
 import java.awt.event.ActionEvent;
 
 public class VentanaRegistro extends JFrame {
@@ -35,7 +39,6 @@ public class VentanaRegistro extends JFrame {
 		setBounds(100, 100, 851, 536);
 		Principal = new JPanel();
 		Principal.setBackground(Color.LIGHT_GRAY);
-		Principal.setBorder(new EmptyBorder(5, 5, 5, 5));
 		Principal.setLayout(new BorderLayout(0, 0));
 		setContentPane(Principal);
 
@@ -162,58 +165,48 @@ public class VentanaRegistro extends JFrame {
 
 				DataConnection conectar = new DataConnection();
 				Connection conn = conectar.DataConn();
+				TrabajadorDao t1 = new TrabajadorDao();
+				
+				Calendar fecha = Calendar.getInstance();
+				boolean mayor = false;
 
-				if (rdbtnCliente.isSelected()) {
-					try {
-						if (ins0.getConectado().equals("Trabajador")) {
-							PreparedStatement stmt = conn.prepareStatement(
-									"INSERT INTO `clientes` (`Nombre`, `Apellido`, `ID`, `Telefono`, `Direccion`, `DNI`, `FechaNacimiento`, `Contrasenha`) VALUES (?, ?, NULL, ?, ?, ?, ?, ?)");
-
-							stmt.setString(1, txtNombre.getText());
-							stmt.setString(2, txtApellido.getText());
-							stmt.setInt(3, Integer.parseInt(txtTelefono.getText()));
-							stmt.setString(4, txtDireccion.getText());
-							stmt.setString(5, txtDNI.getText());
-							java.sql.Date fecha = new java.sql.Date(calendar.getDate().getTime());
-							stmt.setDate(6, fecha);
-							stmt.setString(7, txtContrasenha.getText());
-
-							stmt.executeUpdate();
-							
-							stmt.close();
+				if ((fecha.get(Calendar.YEAR) - calendar.getCalendar().get(Calendar.YEAR)) == 18) {
+					if (fecha.get(Calendar.MONTH) == calendar.getCalendar().get(Calendar.MONTH)) {
+						if (fecha.get(Calendar.DAY_OF_MONTH) >= calendar.getCalendar().get(Calendar.DAY_OF_MONTH)) {
+							mayor = true;
 						}
-
-					} catch (SQLException e) {
-						e.printStackTrace();
+					} else if (fecha.get(Calendar.MONTH) > calendar.getCalendar().get(Calendar.MONTH)) {
+						mayor = true;
 					}
-				} else if (rdbtnTrabajador.isSelected()) {
-					if (ins0.getConectado().equals("Administrador")) {
-						try {
-							PreparedStatement stmt = conn.prepareStatement(
-									"INSERT INTO `trabajador` (`Posicion`, `Nombre`, `Apellido`, `DNI`, `Direccion`, `Telefono`, `ID`, `Contrasenha`) VALUES (?, ?, ?, ?, ?, ?, NULL, ?)");
-
-							stmt.setString(1, txtPosicion.getSelectedItem().toString());
-							stmt.setString(2, txtNombre.getText());
-							stmt.setString(3, txtApellido.getText());
-							stmt.setString(4, txtDNI.getText());
-							stmt.setString(5, txtDireccion.getText());
-							stmt.setInt(6, Integer.parseInt(txtTelefono.getText()));
-							stmt.setString(7, txtContrasenha.getText());
-
-							stmt.executeUpdate();
-
-							stmt.close();
-						} catch (SQLException e) {
-							e.printStackTrace();
-						}
-					}
+				} else if ((fecha.get(Calendar.DAY_OF_MONTH) - calendar.getCalendar().get(Calendar.YEAR)) > 18) {
+					mayor = true;
 				}
+				if (mayor) {
+
+					if (rdbtnCliente.isSelected()) {
+						t1.addCliente(conn, txtNombre.getText(), txtApellido.getText(), txtTelefono.getText(),
+								txtDireccion.getText(), txtDNI.getText(), calendar.getDate(), txtContrasenha.getText());
+					} else if (rdbtnTrabajador.isSelected()) {
+						if (VentanaLogin.getConectado().equals("Administrador")) {
+							t1.addTrabajador(conn, txtPosicion.getSelectedItem().toString(), txtNombre.getText(),
+									txtApellido.getText(), txtDNI.getText(), txtDireccion.getText(),
+									txtTelefono.getText(), txtContrasenha.getText());
+						} else {
+							JOptionPane.showMessageDialog(null,
+									"Solo el Administrador puede añadir nuevos trabajadores.");
+						}
+					}
+
+				} else {
+					JOptionPane.showMessageDialog(null, "Debe ser mayor de 18 años.");
+				}
+
 			}
 		});
 		btnRegistro.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnRegistro.setBounds(381, 433, 121, 30);
 		desktopPane.add(btnRegistro);
-		
+
 		JLabel lblRegistroDeUsuarios = new JLabel("REGISTRO DE USUARIOS");
 		lblRegistroDeUsuarios.setHorizontalAlignment(SwingConstants.CENTER);
 		lblRegistroDeUsuarios.setFont(new Font("Tahoma", Font.BOLD, 25));

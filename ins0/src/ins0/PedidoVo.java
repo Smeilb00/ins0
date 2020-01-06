@@ -12,10 +12,11 @@ public class PedidoVo {
 	private String articulos;
 	private String nombreCliente;
 	private String tipoPedido;
+	private String estado;
 	
 	public PedidoVo() {}
 	
-	public PedidoVo(int iDTrabajador,  int iDCliente, int numPedido, Date fecha, String direccionEntrega, String articulos, String nombreCliente, String tipoPedido) {
+	public PedidoVo(int iDTrabajador,  int iDCliente, int numPedido, Date fecha, String direccionEntrega, String articulos, String nombreCliente, String tipoPedido, String estado) {
 		this.iDTrabajador = iDTrabajador;
 		this.iDCliente = iDCliente;
 		this.numPedido = numPedido;
@@ -24,6 +25,7 @@ public class PedidoVo {
 		this.articulos = articulos; 
 		this.nombreCliente = nombreCliente;
 		this.tipoPedido = tipoPedido;
+		this.estado = estado;
 	}
 
 	public int getiDTrabajador() {
