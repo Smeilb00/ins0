@@ -4,8 +4,11 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.*;
 
+import com.mysql.jdbc.PreparedStatement;
+
 import java.awt.event.*;
 import java.sql.Connection;
+import java.sql.SQLException;
 
 public class VentanaBotones extends JFrame {
 
@@ -110,8 +113,11 @@ public class VentanaBotones extends JFrame {
 				if(VentanaLogin.getConectado().equals("Cliente")) {
 					JOptionPane.showMessageDialog(null, "No tienes permisos para realizar esta acción.");
 				}else {
-					
+					DataConnection conectar = new DataConnection();
+                    Connection conn = conectar.DataConn();
+                    conectar.aceptarPedidos(conn);
 				}
+				
 			}
 		});
 		btnAceptarPedidos.setFont(new Font("Tahoma", Font.PLAIN, 14));
